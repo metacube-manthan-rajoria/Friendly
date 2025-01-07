@@ -14,8 +14,17 @@ public class FriendController : Controller
         _logger = logger;
     }
 
+    [HttpGet]
     public IActionResult Index()
     {
+        ViewBag.friends = FriendService.GetFriendList();
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Index(Friend newFriend){
+        newFriend.FriendId = Guid.NewGuid();
+        FriendService.AddFriend(newFriend);
         ViewBag.friends = FriendService.GetFriendList();
         return View();
     }

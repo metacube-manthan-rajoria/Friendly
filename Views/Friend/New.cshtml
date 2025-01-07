@@ -1,11 +1,11 @@
 @model Friend
 <h1>Add New Friend</h1>
 
-<form action="@Url.Action("AddFriend","Friend")" method="post">
+<form action="@Url.Action("Index","Friend")" method="post">
     <div id="new_friend_form">
-        <input type="email" name="Email" id="email" placeholder="Email">
-        <input type="password" name="Password" id="password" placeholder="Password">
+        <input type="text" name="FriendName" id="FriendNameInput" placeholder="Friend Name">
+        <input type="text" name="Place" id="PlaceInput" placeholder="Place">
 
-        <button>Login</button>
+        <button>Add Friend</button>
     </div>
 </form>
