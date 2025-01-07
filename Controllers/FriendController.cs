@@ -1,20 +1,26 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Friendly.Models;
+using Friendly.Services;
 
 namespace Friendly.Controllers;
 
-public class HomeController : Controller
+public class FriendController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<FriendController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    public FriendController(ILogger<FriendController> logger)
     {
         _logger = logger;
     }
 
     public IActionResult Index()
     {
+        ViewBag.friends = FriendService.GetFriendList();
+        return View();
+    }
+
+    public IActionResult New(){
         return View();
     }
 

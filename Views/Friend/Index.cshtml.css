@@ -1,0 +1,39 @@
+#friend_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#friends_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#friends_list > li {
+    display: grid;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+#friends_list > li:nth-child(2n - 1) {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+#friends_list cite {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-style: normal;
+}
+#friends_list span {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.4);
+    font-style: normal;
+}
+#friends_list p {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+}

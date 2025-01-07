@@ -1,0 +1,22 @@
+@{
+    List<Friend> friends = ViewBag.friends;
+}
+
+<div id="friend_nav">
+    <h1>Friends</h1>
+    <a id="new_friend_button" asp-controller="Friend" asp-action="New">New Friend</a>
+</div>
+
+@if(friends == null || friends.Count == 0){
+    <span>No friends added to list</span>
+}else{
+    <ul id="friends_list">
+        @foreach(var friend in friends){
+            <li>
+                <cite>@friend.FriendName</cite>
+                <span>@friend.FriendId</span>
+                <p>@friend.Place</p>
+            </li>
+        }
+    </ul>
+}
