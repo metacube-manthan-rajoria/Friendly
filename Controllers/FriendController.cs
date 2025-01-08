@@ -41,13 +41,9 @@ public class FriendController : Controller
     }
 
     [HttpPost]
-    public IActionResult Update(IFormCollection friendForm){
+    public IActionResult Update(Friend friend){
         if(ModelState.IsValid){
-            FriendService.UpdateFriend(new Friend{
-                FriendId = Guid.Parse(friendForm["FriendId"]),
-                FriendName = friendForm["FriendName"],
-                Place = friendForm["Place"]
-            });
+            FriendService.UpdateFriend(friend);
         }
         ViewBag.friends = FriendService.GetFriendList();
         return View("Index");
