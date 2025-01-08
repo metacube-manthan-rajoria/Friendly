@@ -1,0 +1,19 @@
+@model Friend
+@{
+    string operation = ViewBag.operation;
+    bool isFirstOperation = operation == null || operation.Equals("add");
+    Guid friend_id = (isFirstOperation) ? Guid.NewGuid() : Model.FriendId;
+    string friend_name = (isFirstOperation) ? "" : Model.FriendName??"";
+    string friend_place = (isFirstOperation) ? "" : Model.Place??"";
+}
+
+<form action="@Url.Action(isFirstOperation ? "Index" : "Update","Friend")" method="post">
+    
+    <div id="friend_form">
+        <input type="hidden" name="FriendId" value="@friend_id">
+        <input type="text" name="FriendName" id="FriendNameInput" placeholder="Friend Name" value="@friend_name">
+        <input type="text" name="Place" id="PlaceInput" placeholder="Place" value="@friend_place">
+
+        <button>@(isFirstOperation ? "Add" : "Update") Friend</button>
+    </div>
+</form>

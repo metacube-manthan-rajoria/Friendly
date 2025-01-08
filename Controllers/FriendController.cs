@@ -34,13 +34,13 @@ public class FriendController : Controller
     }
 
     public IActionResult New(){
-        return View();
+        return View(new Friend{FriendName=null, Place=null});
     }
 
     [HttpGet]
     public IActionResult Update(Guid id){
         ViewBag.friend = FriendService.FindFriend(id);
-        return View();
+        return View(ViewBag.friend);
     }
 
     [HttpPost]

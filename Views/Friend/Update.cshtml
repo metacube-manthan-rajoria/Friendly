@@ -1,17 +1,8 @@
 @model Friend
-@{
-    Guid friendid = ViewBag.friend.FriendId;
-    string name = ViewBag.friend.FriendName;
-    string place = ViewBag.friend.Place;
-}
+
 <h1>Update Friend Details</h1>
 
-<form action="@Url.Action("Update","Friend")" method="post">
-    <div id="update_friend_form">
-        <input type="hidden" value="@friendid" name="FriendId">
-        <input type="text" name="FriendName" id="UpdateFriendNameInput" placeholder="Friend Name" value="@name">
-        <input type="text" name="Place" id="UpdatePlaceInput" placeholder="Place" value="@place">
-
-        <button>Update</button>
-    </div>
-</form>
+@{
+    ViewBag.operation = "update";
+    Html.RenderPartial("_FriendForm", Model);
+}
