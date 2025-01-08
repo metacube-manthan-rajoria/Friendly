@@ -1,5 +1,6 @@
 @{
     List<Friend> friends = ViewBag.friends;
+    string error = ViewBag.error;
 }
 
 <div id="friend_nav">
@@ -10,6 +11,11 @@
 @if(friends == null || friends.Count == 0){
     <span>No friends added to list</span>
 }else{
+    @if(error != null && !error.Equals("")){
+        <div class="alert alert-danger" role="alert">
+            @error
+        </div>
+    }
     <ul id="friends_list">
         @foreach(var friend in friends){
             <li>

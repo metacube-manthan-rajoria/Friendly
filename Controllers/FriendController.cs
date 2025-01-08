@@ -25,6 +25,8 @@ public class FriendController : Controller
     public IActionResult Index(Friend newFriend){
         if(ModelState.IsValid){
             FriendService.AddFriend(newFriend);
+        }else{
+            ViewBag.error = "Friend not added - Invalid Friend Details";
         }
         ViewBag.friends = FriendService.GetFriendList();
         return View();
@@ -44,6 +46,8 @@ public class FriendController : Controller
     public IActionResult Update(Friend friend){
         if(ModelState.IsValid){
             FriendService.UpdateFriend(friend);
+        }else{
+            ViewBag.error = "Friend not updated - Invalid Friend Details";
         }
         ViewBag.friends = FriendService.GetFriendList();
         return View("Index");
