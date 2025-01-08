@@ -23,6 +23,18 @@ public class FriendService {
         return true;
     }
 
+    public static bool UpdateFriend(Friend newFriend){
+
+        foreach(var friend in friends){
+            if(friend.FriendId == newFriend.FriendId){
+                friend.FriendName = newFriend.FriendName;
+                friend.Place = newFriend.Place;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static bool RemoveFriend(Guid id){
         Friend? friendToRemove = null;
         foreach(var friend in friends){
@@ -45,5 +57,4 @@ public class FriendService {
         }
         return null;
     }
-
 }
