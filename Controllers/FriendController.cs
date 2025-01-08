@@ -15,6 +15,7 @@ public class FriendController : Controller
     }
 
     [HttpGet]
+    [Route("/Friend")]
     public IActionResult Index()
     {
         ViewBag.friends = FriendService.GetFriendList();
@@ -22,7 +23,6 @@ public class FriendController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public IActionResult Index(Friend newFriend){
         if(ModelState.IsValid){
             FriendService.AddFriend(newFriend);
@@ -33,6 +33,7 @@ public class FriendController : Controller
         return View();
     }
 
+    [Route("/Friend/Add")]
     public IActionResult New(){
         return View(new Friend{FriendName=null, Place=null});
     }

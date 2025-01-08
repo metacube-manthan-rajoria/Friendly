@@ -2,14 +2,7 @@
 
 <h1>Add New Friend</h1>
 
-<form action="@Url.Action("Index","Friend")" method="post">
-    <div id="new_friend_form">
-        <input type="hidden" name="FriendId" value="@Guid.NewGuid()">
-        <input type="text" name="FriendName" id="NewFriendNameInput" placeholder="Friend Name">
-        <span asp-validation-for="FriendName"></span>
-        <input type="text" name="Place" id="NewPlaceInput" placeholder="Place">
-        <span asp-validation-for="Place"></span>
-
-        <button>Add Friend</button>
-    </div>
-</form>
+@{
+    ViewBag.operation = "add";
+    Html.RenderPartial("_FriendForm", Model);
+}
