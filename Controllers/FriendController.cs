@@ -22,6 +22,7 @@ public class FriendController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Index(Friend newFriend){
         if(ModelState.IsValid){
             FriendService.AddFriend(newFriend);
