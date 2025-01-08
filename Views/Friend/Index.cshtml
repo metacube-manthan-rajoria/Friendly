@@ -13,9 +13,15 @@
     <ul id="friends_list">
         @foreach(var friend in friends){
             <li>
-                <cite>@friend.FriendName</cite>
-                <span>@friend.FriendId</span>
-                <p>@friend.Place</p>
+                <div>
+                    <cite>@friend.FriendName</cite>
+                    <span>@friend.FriendId</span>
+                    <p>@friend.Place</p>
+                </div>
+                <div>
+                    <a class="btn btn-outline-warning mb-2" asp-controller="Friend" asp-action="Update" asp-route-id="@friend.FriendId">Edit</a>
+                    <a class="btn btn-outline-danger" asp-controller="Friend" asp-action="Delete" asp-route-id="@friend.FriendId">Delete</a>
+                </div>
             </li>
         }
     </ul>

@@ -13,8 +13,13 @@
 
 #friends_list > li {
     display: grid;
+    grid-template-columns: 5fr 1fr;
     border-radius: 1rem;
     padding: 1rem;
+}
+
+#friends_list > li > div {
+    display: grid;
 }
 
 #friends_list > li:nth-child(2n - 1) {
