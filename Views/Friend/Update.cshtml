@@ -1,5 +1,6 @@
 @model Friend
 @{
+    Guid friendid = ViewBag.friend.FriendId;
     string name = ViewBag.friend.FriendName;
     string place = ViewBag.friend.Place;
 }
@@ -7,9 +8,10 @@
 
 <form action="@Url.Action("Update","Friend")" method="post">
     <div id="update_friend_form">
-        <input type="text" name="FriendName" id="FriendNameInput" placeholder="Friend Name" value="@name">
-        <input type="text" name="Place" id="PlaceInput" placeholder="Place" value="@place">
+        <input type="hidden" value="@friendid" name="FriendId">
+        <input type="text" name="FriendName" id="UpdateFriendNameInput" placeholder="Friend Name" value="@name">
+        <input type="text" name="Place" id="UpdatePlaceInput" placeholder="Place" value="@place">
 
-        <button>Update Friend</button>
+        <button>Update</button>
     </div>
 </form>

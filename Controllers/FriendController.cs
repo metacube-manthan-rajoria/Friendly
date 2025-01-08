@@ -23,8 +23,9 @@ public class FriendController : Controller
 
     [HttpPost]
     public IActionResult Index(Friend newFriend){
-        newFriend.FriendId = Guid.NewGuid();
-        FriendService.AddFriend(newFriend);
+        if(ModelState.IsValid){
+            FriendService.AddFriend(newFriend);
+        }
         ViewBag.friends = FriendService.GetFriendList();
         return View();
     }
@@ -33,19 +34,24 @@ public class FriendController : Controller
         return View();
     }
 
+    [HttpGet]
     public IActionResult Update(Guid id){
         ViewBag.friend = FriendService.FindFriend(id);
         return View();
     }
 
     [HttpPost]
-    public IActionResult Update(Guid id, Friend friend){
-        friend.FriendId = id;
-        FriendService.UpdateFriend(friend);
-        ViewBag.friend = FriendService.FindFriend(id);
-        return View();
+    public IActionResult Update(IFormCollection friendForm){
+        if(ModelState.IsValid){
+            FriendService.UpdateFriend(new Friend{
+                FriendId = Guid.Parse(friendForm["FriendId"]),
+                FriendName = friendForm["FriendName"],
+                Place = friendForm["Place"]
+            });
+        }
+        ViewBag.friends = FriendService.GetFriendList();
+        return View("Index");
     }
-
 
     public IActionResult Delete(Guid id){
         FriendService.RemoveFriend(id);
