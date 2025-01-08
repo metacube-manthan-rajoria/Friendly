@@ -1,0 +1,28 @@
+#update_friend_form {
+    display: grid;
+    gap: 0.5rem;
+
+    margin-top: 2rem;
+}
+
+#update_friend_form > input {
+    width: 70%;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+#update_friend_form > button {
+    width: 70%;
+    padding: 1rem;
+    border: 0;
+    border-radius: 0.3rem;
+    background-color: rgb(39, 115, 255);
+    color: white;
+    transition: scale 0.4s;
+}
+#update_friend_form > button:hover {
+    scale: 1.01;
+}
