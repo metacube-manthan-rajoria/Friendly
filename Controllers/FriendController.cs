@@ -46,7 +46,7 @@ public class FriendController : Controller
 
     [HttpPost]
     public IActionResult Update(IFormCollection friend){
-        if(ModelState.IsValid){
+        if(ModelState.IsValid && !friend["FriendName"].Equals("")){
             FriendService.UpdateFriend(new Friend{
                 FriendId=Guid.Parse(friend["FriendId"]),
                 FriendName=friend["FriendName"],
