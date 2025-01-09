@@ -46,17 +46,28 @@ public class FriendController : Controller
 
     [HttpPost]
     public IActionResult Update(IFormCollection friend){
-        if(ModelState.IsValid && !friend["FriendName"].Equals("")){
-            FriendService.UpdateFriend(new Friend{
-                FriendId=Guid.Parse(friend["FriendId"]),
-                FriendName=friend["FriendName"],
-                Place=friend["Place"]
-            });
-        }else{
-            ViewBag.error = "Friend not updated - Invalid Friend Details";
+        try{
+            if(ModelState.IsValid && !friend["FriendName"].Equals("")){
+                try{
+                    FriendService.UpdateFriend(new Friend{
+                        FriendId = Guid.Parse(friend["FriendId"].ToString()),
+                        FriendName = friend["FriendName"],
+                        Place = friend["Place"]
+                    });
+                }
+                catch (NullReferenceException){
+                    ViewBag.error = "Friend not updated - Invalid Id";
+                }
+            }
+            else{
+                ViewBag.error = "Friend not updated - Invalid Friend Details";
+            }
+            ViewBag.friends = FriendService.GetFriendList();
+            return View("Index");
         }
-        ViewBag.friends = FriendService.GetFriendList();
-        return View("Index");
+        catch{
+            return StatusCode(500, "We ran into an error");
+        }
     }
 
     public IActionResult Delete(Guid id){

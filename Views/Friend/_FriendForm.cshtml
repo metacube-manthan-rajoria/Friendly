@@ -2,7 +2,13 @@
 @{
     string operation = ViewBag.operation;
     bool isFirstOperation = operation == null || operation.Equals("add");
-    Guid friend_id = (isFirstOperation) ? Guid.NewGuid() : Model.FriendId;
+    Guid friend_id;
+    try{
+        friend_id = (isFirstOperation) ? Guid.NewGuid() : Model.FriendId;
+    }catch(NullReferenceException){
+        friend_id = Guid.Empty;
+    }
+    
     string friend_name = (isFirstOperation) ? "" : Model.FriendName??"";
     string friend_place = (isFirstOperation) ? "" : Model.Place??"";
 }
