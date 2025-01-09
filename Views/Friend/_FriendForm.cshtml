@@ -11,6 +11,7 @@
     <div id="friend_form">
         <input type="hidden" name="FriendId" value="@friend_id">
         <input type="text" name="FriendName" id="FriendNameInput" placeholder="Friend Name" value="@friend_name">
+        <span asp-validation-for="FriendName"></span>
         <input type="text" name="Place" id="PlaceInput" placeholder="Place" value="@friend_place">
 
         <button>@(isFirstOperation ? "Add" : "Update") Friend</button>

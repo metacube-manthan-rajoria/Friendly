@@ -45,9 +45,13 @@ public class FriendController : Controller
     }
 
     [HttpPost]
-    public IActionResult Update(Friend friend){
+    public IActionResult Update(IFormCollection friend){
         if(ModelState.IsValid){
-            FriendService.UpdateFriend(friend);
+            FriendService.UpdateFriend(new Friend{
+                FriendId=Guid.Parse(friend["FriendId"]),
+                FriendName=friend["FriendName"],
+                Place=friend["Place"]
+            });
         }else{
             ViewBag.error = "Friend not updated - Invalid Friend Details";
         }
