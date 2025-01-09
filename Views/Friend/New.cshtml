@@ -1,8 +1,8 @@
 @model Friend
+@{
+    ViewBag.operation = "add";
+}
 
 <h1>Add New Friend</h1>
 
-@{
-    ViewBag.operation = "add";
-    Html.RenderPartial("_FriendForm", Model);
-}
+<partial name="_FriendForm" model="Model"/>
