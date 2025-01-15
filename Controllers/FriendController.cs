@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Friendly.Models;
 using Friendly.Services;
+using Friendly.Filters;
 
 namespace Friendly.Controllers;
 
@@ -23,6 +24,7 @@ public class FriendController : Controller
     }
 
     [HttpPost]
+    [ClearErrorMessage]
     public IActionResult Index(Friend newFriend){
         if(ModelState.IsValid){
             FriendService.AddFriend(newFriend);
