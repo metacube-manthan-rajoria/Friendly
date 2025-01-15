@@ -48,3 +48,24 @@ body {
 #new_friend_button:hover {
   background-color: lawngreen;
 }
+
+.input {
+  width: 70%;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+}
+
+.form-button {
+  width: 70%;
+  padding: 1rem;
+  border: 0;
+  border-radius: 0.3rem;
+  background-color: rgb(39, 115, 255);
+  color: white;
+  transition: scale 0.4s;
+}
+.form-button:hover {
+  scale: 1.01;
+}

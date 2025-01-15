@@ -17,12 +17,12 @@
     <div id="friend_form">
         <input type="hidden" name="FriendId" value="@friend_id">
 
-        <input asp-for="FriendName" placeholder="Friend Name" value="@friend_name">
+        <input asp-for="FriendName" placeholder="Friend Name" value="@friend_name" class="input">
         <span asp-validation-for="FriendName" class="text-danger"></span>
 
-        <input asp-for="Place" placeholder="Place" value="@friend_place">
+        <input asp-for="Place" placeholder="Place" value="@friend_place" class="input">
         <span asp-validation-for="Place" class="text-danger"></span>
 
-        <button>@(isFirstOperation ? "Add" : "Update") Friend</button>
+        <button class="form-button">@(isFirstOperation ? "Add" : "Update") Friend</button>
     </div>
 </form>

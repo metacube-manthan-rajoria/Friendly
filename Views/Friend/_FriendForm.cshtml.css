@@ -4,24 +4,3 @@
 
     margin-top: 2rem;
 }
-
-#friend_form > input {
-    width: 70%;
-    padding: 1rem;
-    outline: none;
-    border: 1px solid black;
-    border-radius: 0.3rem;
-}
-
-#friend_form > button {
-    width: 70%;
-    padding: 1rem;
-    border: 0;
-    border-radius: 0.3rem;
-    background-color: rgb(39, 115, 255);
-    color: white;
-    transition: scale 0.4s;
-}
-#friend_form > button:hover {
-    scale: 1.01;
-}
