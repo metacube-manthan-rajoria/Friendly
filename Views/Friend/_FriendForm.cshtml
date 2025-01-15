@@ -16,9 +16,12 @@
 <form action="@Url.Action(isFirstOperation ? "Index" : "Update","Friend")" method="post">
     <div id="friend_form">
         <input type="hidden" name="FriendId" value="@friend_id">
-        <input type="text" name="FriendName" id="FriendNameInput" placeholder="Friend Name" value="@friend_name">
-        <span asp-validation-for="FriendName"></span>
-        <input type="text" name="Place" id="PlaceInput" placeholder="Place" value="@friend_place">
+
+        <input asp-for="FriendName" placeholder="Friend Name" value="@friend_name">
+        <span asp-validation-for="FriendName" class="text-danger"></span>
+
+        <input asp-for="Place" placeholder="Place" value="@friend_place">
+        <span asp-validation-for="Place" class="text-danger"></span>
 
         <button>@(isFirstOperation ? "Add" : "Update") Friend</button>
     </div>
